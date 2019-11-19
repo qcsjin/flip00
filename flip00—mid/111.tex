@@ -1,0 +1,526 @@
+%
+% ---------------------------------------------------------------
+% Copyright (C) 2012-2018 Gang Li
+% ---------------------------------------------------------------
+%
+% This work is the default powerdot-tuliplab style test file and may be
+% distributed and/or modified under the conditions of the LaTeX Project Public
+% License, either version 1.3 of this license or (at your option) any later
+% version. The latest version of this license is in
+% http://www.latex-project.org/lppl.txt and version 1.3 or later is part of all
+% distributions of LaTeX version 2003/12/01 or later.
+%
+% This work has the LPPL maintenance status "maintained".
+%
+% This Current Maintainer of this work is Gang Li.
+%
+%
+
+\documentclass[
+size=14pt,
+paper=smartboard,  %a4paper, smartboard, screen
+mode=present, 		%present, handout, print
+display=slides, 	% slidesnotes, notes, slides
+% TULIP Lab style
+pauseslide,
+fleqn,leqno]{powerdot}
+
+
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{rotating}
+\usepackage{graphicx}
+\usepackage{boxedminipage}
+\usepackage{media9}
+\usepackage{rotate}
+\usepackage{calc}
+\usepackage[absolute]{textpos}
+\usepackage{psfrag,overpic}
+\usepackage{fouriernc}
+\usepackage{pstricks,pst-node,pst-text,pst-3d,pst-grad}
+\usepackage{moreverb,epsfig,subfigure}
+\usepackage{pstricks}
+\usepackage{pstricks-add}
+\usepackage{pst-text}
+\usepackage{pst-node, pst-tree}
+\usepackage{booktabs}
+\usepackage{etex}
+\usepackage{breqn}
+\usepackage{multirow}
+\usepackage{gitinfo2}
+\usepackage{xcolor}
+
+\usepackage{todonotes}
+% \usepackage{pst-rel-points}
+\usepackage{animate}
+\usepackage{fontawesome}
+
+\usepackage{listings}
+\lstset{frameround=fttt,
+	frame=trBL,
+	stringstyle=\ttfamily,
+	backgroundcolor=\color{yellow!20},
+	basicstyle=\footnotesize\ttfamily}
+\lstnewenvironment{code}{
+	\lstset{frame=single,escapeinside=`',
+		backgroundcolor=\color{yellow!20},
+		basicstyle=\footnotesize\ttfamily}
+}{}
+
+
+\usepackage{hyperref}
+\hypersetup{ % TODO: PDF meta Data
+	pdftitle={Presentation Title},
+	pdfauthor={Gang Li},
+	pdfpagemode={FullScreen},
+	pdfborder={0 0 0}
+}
+
+
+% \usepackage{auto-pst-pdf}
+% package to show source code
+
+\definecolor{LightGray}{rgb}{0.9,0.9,0.9}
+\newlength{\pixel}\setlength\pixel{0.000714285714\slidewidth}
+\setlength{\TPHorizModule}{\slidewidth}
+\setlength{\TPVertModule}{\slideheight}
+\newcommand\highlight[1]{\fbox{#1}}
+\newcommand\icite[1]{{\footnotesize [#1]}}
+
+\newcommand\twotonebox[2]{\fcolorbox{pdcolor2}{pdcolor2}
+	{#1\vphantom{#2}}\fcolorbox{pdcolor2}{white}{#2\vphantom{#1}}}
+\newcommand\twotoneboxo[2]{\fcolorbox{pdcolor2}{pdcolor2}
+	{#1}\fcolorbox{pdcolor2}{white}{#2}}
+\newcommand\vpspace[1]{\vphantom{\vspace{#1}}}
+\newcommand\hpspace[1]{\hphantom{\hspace{#1}}}
+\newcommand\COMMENT[1]{}
+
+\newcommand\placepos[3]{\hbox to\z@{\kern#1
+		\raisebox{-#2}[\z@][\z@]{#3}\hss}\ignorespaces}
+
+\renewcommand{\baselinestretch}{1.2}
+
+
+\newcommand{\draftnote}[3]{
+	\todo[author=#2,color=#1!30,size=\footnotesize]{\textsf{#3}}	}
+% TODO: add yourself here:
+%
+\newcommand{\gangli}[1]{\draftnote{blue}{GLi:}{#1}}
+\newcommand{\shaoni}[1]{\draftnote{green}{sn:}{#1}}
+\newcommand{\gliMarker}
+{\todo[author=GLi,size=\tiny,inline,color=blue!40]
+	{Gang Li has worked up to here.}}
+\newcommand{\snMarker}
+{\todo[author=Sn,size=\tiny,inline,color=green!40]
+	{Shaoni has worked up to here.}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% title
+% TODO: Customize to your Own Title, Name, Address
+\title{Flip00 Mid-term Test Presentation}
+\author{
+	\bigskip
+	Jin Chen
+	\\
+	\smallskip
+	Tulip ? Team for universal learning and intelligent processing
+	\\
+	\smallskip	
+	School of Business Management
+	\\
+	\smallskip
+	Hunan University
+	% \href{mailto:gangli@acm.org}{gangli@acm.org}
+	% \and % more authors
+}
+\date{\today}
+% Customize the setting of slides
+\pdsetup{
+	% TODO: Customize the left footer, and right footer
+	rf=\href{http://www.tulip.org.au}{
+		Last Changed by: \textsc{Jin Chen}%\ \gitVtagn-\gitAbbrevHash\ (\gitAuthorDate)
+	},
+	cf={Flip00 Mid-Term Test Presentation},
+}
+
+
+\begin{document}
+	
+	\maketitle 
+	
+	\begin{slide}[toc=,bm=]{Outline}
+		\tableofcontents[content=sections]
+	\end{slide}
+	
+	\section{Introduction}
+	
+	
+	
+	\begin{slide}{Introduction}
+		\begin{description}[type=1]
+			\item[Information about the data]
+			\emph{This data contains the location and circumstances of every field goal attempted by Kobe Bryant took during his 20 years career. }
+			\begin{itemize}
+				\item There are 30697 lines of data in the training set.
+				\item There are 24 attributes.
+			\end{itemize} 
+		\end{description}
+		%		\onslide*{2-}
+		%		{
+		\begin{table}[htbp]
+			\centering
+			\begin{tabular}{cc}
+				\toprule  %????????
+				Attribute& Note\\
+				\hline
+				action_type & Jumpshot,Layup,Dunk,Tipshot,Hookshot,Bankshot\\
+				loc_x ,loc_y & shots point\\
+				shot_made_flag & 1=Yes,0=No\\
+				shot_type & 2PT Field Goal,2PT Field Goal\\
+				shot_zone_area & shots area by area\\
+				shot_zone_basic & shots area by  NBA rules\\
+				shot_zone_range & shots area by radius\\
+				
+				\bottomrule %????????
+			\end{tabular}
+			\bigskip
+			\caption{Data Information}
+		\end{table}
+		\label{table1}
+		%		}
+	\end{slide}
+	
+	
+	\section{Data Description}
+	
+	\begin{slide}{Descriptive Statistics}
+		\twotonebox{Aim}{\parbox{.8\textwidth}
+			{Use descriptive statistics to get an overview of the data
+			}
+		}
+		\smallskip
+		\begin{itemize}
+			\item 
+			Let's take a brief look at all \emph{numerical} columns statistcs: \pause
+			\\
+		\end{itemize}
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[scale=0.5]{1.eps}
+			\caption{the part description of the data}
+		\end{figure}
+	\end{slide}
+	
+	\begin{slide}[toc=,bm=]{Descriptive Statistics}
+		\twotonebox{Aim}{\parbox{.8\textwidth}
+			{Use descriptive statistics to get an overview of the data
+			}
+		}
+		\smallskip
+		\begin{itemize}
+			\item 
+			And for part of \emph{categorical} columns: \pause
+			\\
+		\end{itemize}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[scale=0.5]{b.eps}        %????LaTeX?????????
+			\caption{categorical columns statistcs}
+			\label{fig2}
+		\end{figure}
+	\end{slide}
+	
+	\section{Data Visualization}
+	
+	\begin{slide}{slide 1}
+		To Count Kobe's total shots
+	\begin{itemize}
+		\item The hit distribution histogram of Kobe's shots
+	\end{itemize} 
+	%			\item 
+	%			\item C
+	%		\end{itemize}
+	
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[scale=0.8]{c.eps}        %?a??ê??úLaTeX???t?D?Dμ??à???·??
+		\caption{target class distribution}
+		\label{fig3}
+	\end{figure}
+	\end{slide}
+	
+		\begin{slide}{slide 2}	
+	%		\begin{itemize}
+
+		Visualization of two kinds of shots (two-point shot and three-point shot)
+		\begin{itemize}
+			\item The hit distribution histogram of Kobe's shots(two-point shot and three-point shot)
+		\end{itemize} 
+		%			\item 
+		%			\item C
+		%		\end{itemize}
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[scale=0.3]{d.eps
+		}        %?a??ê??úLaTeX???t?D?Dμ??à???·??
+		\caption{The hit distribution histogram of two shot types}
+		\label{fig4}
+	\end{figure}
+\end{slide}
+	
+	\begin{slide}{slide 3}
+	%		\begin{itemize}
+
+		Visualizing the shot type and position of Kobe's shots every time
+		\begin{itemize}
+			\item the shot type and position of Kobe's shots
+		\end{itemize} 
+		%			\item 
+		%			\item C
+		%		\end{itemize}
+
+	
+	\begin{figure}[htbp]
+		\centering
+		\includegraphics[scale=0.18]{e.eps
+		}        %这个是在LaTeX文件夹中的相对路径
+		\caption{the shot type and position of Kobe's shots}
+		\label{fig5}
+	\end{figure}
+\end{slide}
+	
+	\begin{slide}
+		Visualizing the shot accuracy of various action type
+			\begin{itemize}
+				\item the shot accuracy of various action type
+			\end{itemize} 
+			%			\item 
+			%			\item C
+			%		\end{itemize}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[scale=0.4]{f.eps
+			}        %这个是在LaTeX文件夹中的相对路径
+			\caption{the shot accuracy of various action type}
+			\label{fig6}
+		\end{figure}
+	\end{slide}
+	
+	\begin{slide}
+			{Visualization of shots position according to the given rectangular coordinates}
+			\begin{itemize}
+				\item shots position in rectangular coordinate system
+			\end{itemize} 
+			%			\item 
+			%			\item C
+			%		\end{itemize}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[scale=0.3]{g.eps
+			}        %这个是在LaTeX文件夹中的相对路径
+			\caption{shots position in rectangular coordinate system}
+			\label{fig7}
+		\end{figure}
+	\end{slide}
+	
+	\begin{slide}
+			According to the three different ways to divide the field area, respectively visualizing the shooting area
+			\begin{itemize}
+				\item Division of shooting area
+			\end{itemize} 
+			%			\item 
+			%			\item C
+			%		\end{itemize}
+		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[scale=0.3]{h.eps
+			}        %这个是在LaTeX文件夹中的相对路径
+			\caption{Division of shooting area}
+			\label{fig8}
+		\end{figure}
+	\end{slide}
+	
+	\begin{slide}
+			Visualization of shot accuracy in shooting area divided by area
+			\begin{itemize}
+				\item shot accuracy in shooting area divided by area
+			\end{itemize} 
+			%			\item 
+			%			\item C
+			%		\end{itemize}		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[scale=0.4]{i.eps
+			}        %这个是在LaTeX文件夹中的相对路径
+			\caption{shot accuracy in shooting area divided by area}
+			\label{fig9}
+		\end{figure}
+	\end{slide}
+	
+	\begin{slide}
+		 Visualization of shot accuracy in shooting area divided by NBA rules
+			\begin{itemize}
+				\item shot accuracy in shooting area divided by NBA rules
+			\end{itemize} 
+			%			\item 
+			%			\item C
+			%		\end{itemize}
+  		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[scale=0.3]{j.eps
+			}        %这个是在LaTeX文件夹中的相对路径
+			\caption{shot accuracy in shooting area divided by NBA rules}
+			\label{fig10}
+		\end{figure}
+	\end{slide}
+	
+	\begin{slide}
+		 Visualization of shot accuracy in shooting area divided by radius
+			\begin{itemize}
+				\item shot accuracy in shooting area divided by radius
+			\end{itemize} 
+			%			\item 
+			%			\item C
+			%		\end{itemize}
+  		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[scale=0.5]{k.eps
+			}        %这个是在LaTeX文件夹中的相对路径
+			\caption{shot accuracy in shooting area divided by radius}
+			\label{fig11}
+		\end{figure}
+	\end{slide}
+	
+	\begin{slide}
+		 visualize the shot accuracy of each seasons.
+			\begin{itemize}
+				\item shot accuracy of each seasons
+			\end{itemize} 
+			%			\item 
+			%			\item C
+			%		\end{itemize}
+  		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[scale=0.4]{m.eps
+			}        %这个是在LaTeX文件夹中的相对路径
+			\caption{shot accuracy of each seasons}
+			\label{fig12}
+		\end{figure}
+	\end{slide}
+	
+	\begin{slide}
+		 Visualize the shot times and shot accuracy of each period.
+			\begin{itemize}
+				\item The shot times of each period 
+			\end{itemize} 
+			%			\item 
+			%			\item C
+			%		\end{itemize}
+  		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[scale=0.4]{o.eps
+			}        %这个是在LaTeX文件夹中的相对路径
+			\caption{Shot times of each period }
+			\label{fig13}
+		\end{figure}
+	\end{slide}
+	
+	\begin{slide}
+		 Visualize the shot times and shot accuracy of each period.
+			\begin{itemize}
+				\item The shot accuracy of each period 
+			\end{itemize} 
+			%			\item 
+			%			\item C
+			%		\end{itemize}
+  		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[scale=0.4]{p.eps
+			}        %这个是在LaTeX文件夹中的相对路径
+			\caption{Shot accuracy of each period }
+			\label{fig14}
+		\end{figure}
+	\end{slide}
+	
+	\begin{slide}
+		 Apply 3 different binnings of time and show the attempts as function from game start
+			\begin{itemize}
+				\item Histogram of shots and time 
+			\end{itemize} 
+			%			\item 
+			%			\item C
+			%		\end{itemize}
+  		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[scale=0.22]{q.eps
+			}        %这个是在LaTeX文件夹中的相对路径
+			\caption{Histogram of shots and time }
+			\label{fig15}
+		\end{figure}
+	\end{slide}
+	
+	\begin{slide}{Data Visualization}
+		 Plot shot accuracy as function of time during the game.(20 second time bins)
+			\begin{itemize}
+				\item Histogram of shot accuracy and time  
+			\end{itemize} 
+			%			\item 
+			%			\item C
+			%		\end{itemize}
+  		
+		\begin{figure}[htbp]
+			\centering
+			\includegraphics[scale=0.3]{r.eps
+			}        %这个是在LaTeX文件夹中的相对路径
+			\caption{Histogram of shot accuracy and time  }
+			\label{fig16}
+		\end{figure}
+	\end{slide}
+	
+	
+	
+	
+	
+	\section{Conclusion}
+	
+	%	\begin{slide}[toc=,bm=]{Evaluating the model performance and the feature importance.}
+	\begin{slide}{Model performance and Feature importance.}
+		\begin{description}[type = 1]
+			\item Model performance
+			\begin{itemize}
+				\item Verifing the effectiveness of this algorithm using 10-Fold and the mean accuracy equals 0.8047940074906368
+			\end{itemize}
+  		
+		\begin{description}[type = 1]
+			\item Feature importance.
+			\begin{itemize}
+				\item evaluate what the most important variables are for the model to make the prediction
+			\end{itemize}
+  		
+		
+		
+	\end{slide}
+	
+	\begin{slide}[toc=,bm=]{Question and Anwser}
+		\vspace{4cm}
+		\begin{center}
+			\textcolor[RGB]{59,43,112}{\scalebox{1.5}{Thank you for your attention!}}
+		\end{center}
+	\end{slide}
+	
+	
+\end{document}
+
+\endinput
