@@ -1,0 +1,94 @@
+\documentclass{amsart}
+\synctex=1
+
+%=================================================================
+% 
+\newcount\DraftStatus  % 0 suppresses notes to selves in text
+\DraftStatus=1   % TODO: set to 0 for final version
+%=================================================================
+
+%=================================================================
+\usepackage{comment}
+%=================================================================
+%
+\includecomment{JournalOnly}  
+\includecomment{ConferenceOnly}  
+\includecomment{TulipStyle}
+%
+%=================================================================
+\input{preamble}
+
+
+%=================================================================
+%
+\begin{document}
+%
+%=================================================================
+%
+\title[Lin's Flip00 ]{Flip00 Final Presetantion Report}%
+
+\author{Chenjin}
+\address[A.~1]{School of Computer Science,\\ 
+HuNan University, , China}%
+\email[A.~1]{shuxia.lin@tulip.org.au}
+
+%\author{Gang Li}
+%\address[A.~2]{School of Information Technology \\
+%Deakin University, Geelong, VIC 3216, Australia}%
+%\email[A.~2]{gang.li@deakin.edu.au}
+
+
+%\author{Author 3}
+%\address[A.~3]{School of Information Technology \\
+%Deakin University \\
+%Vic 3125, Australia}%
+%\email[A.~3]{xxx@deakin.edu.au}
+
+%\thanks{Thanks to \ldots}%
+%\subjclass{Artificial Intelligence}%
+\keywords{Machine Learning, Data Mining, ...}%
+\date{\gitAuthorDate}%
+
+\begin{abstract}
+This report contains five parts. 
+First, 
+introduce the definition of the problem,
+describe the data and analyze the problem. 
+Second, 
+statistical the data information, 
+visualize the data to find some potential relationships 
+between the attribute values 
+and process the data 
+like dummy variables, feature engineering, feature selection etc. 
+Third, 
+explain the most important parameters 
+of different algorithms,
+and the method of experiment.
+Fourth,
+experiment and 
+analyze the performance of different algorithms
+based on experimental result.
+The last one is conclusion . 
+\end{abstract}
+
+\maketitle
+\tableofcontents
+
+\newpage
+%=================================================================
+
+\input{mainbody}
+
+
+
+
+% ----------------------------------------------------------------
+\newpage
+\bibliography{tuliplab,Linbib}
+\bibliographystyle{plain}
+%=================================================================
+
+\listoftodos
+
+\end{document}
+
