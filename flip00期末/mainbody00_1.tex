@@ -62,10 +62,7 @@ such as The RandomForestClassifier,
 KNeighbors Classifier and Logistic Regression.
 Finaly,make a final prediction,fit the model with whole data
 
-
-
-
-
+\newpage
 \section{Exploratory Data Analysis} \label{sec-data_exploration}
 
 \subsection{Data Information}
@@ -76,7 +73,6 @@ is the statistical result of the columns.
 From this table,we can discover that some of columns have a similar meaning 
 or may not contribute much to the model.
 so we may need remove and convert them. 
-\newpage
 
 \begin{table}[htbp]  \centering
 	\caption{Data Information}
@@ -99,8 +95,9 @@ so we may need remove and convert them.
 	\end{tabular}
 \end{table}
 
+
+
 \subsection{Data Visualization}
-\
 
 Use EDA to plot the distribution of the data,
 can observate the data intuitively and
@@ -114,8 +111,9 @@ the data with the same label is drawn in same color,
 which is very helpful for 
 the construction of the Feature.
 
+
+
 \subsubsection{ Histogram}
-\
 
 The figure 1
 shows the hit distribution of Kobe's shots  
@@ -127,16 +125,17 @@ the figure 3
 shows the shot accuracy of various action type.
 It can be seen that dunk is the highest hit rate, followed by bank shot is about 80\%,
 while jump shot and Tip shot are relatively difficult.
+\newpage
 
 \begin{figure}[H]
 
 		\centering
-		\includegraphics[scale=0.6]{c.eps}
+		\includegraphics[scale=0.55]{c.eps}
 		\caption{target class distribution}
 	
 
 		\centering
-		\includegraphics[scale=0.4]{d.eps}
+		\includegraphics[scale=0.3]{d.eps}
 		\caption{The hit distribution histogram of two shot types}
 		
 			\centering
@@ -146,7 +145,7 @@ while jump shot and Tip shot are relatively difficult.
 		\label{fig3}
 	
 \end{figure}
-
+\newpage
 
 \subsubsection{Scatter Plot}
 \
@@ -172,7 +171,7 @@ Lets now see the Kobe's shots positioning with the time and distance.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.28]{m.eps
+	\includegraphics[scale=0.2]{m.eps
 	}        %Õâ¸öÊÇÔÚLaTeXÎÄ¼þ¼ÐÖÐµÄÏà¶ÔÂ·¾¶
 	\caption{shot accuracy of each seasons}
 	\label{fig5}
@@ -180,12 +179,13 @@ Lets now see the Kobe's shots positioning with the time and distance.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[scale=0.28]{s.eps
+	\includegraphics[scale=0.2]{s.eps
 	}        %Õâ¸öÊÇÔÚLaTeXÎÄ¼þ¼ÐÖÐµÄÏà¶ÔÂ·¾¶
 	\caption{Shot_distance vs the accuracy of the shots made flag}
 	\label{fig6}
 \end{figure}
-\newpage
+
+
 \subsection{Data Preparation}
 
 \subsubsection{Data Cleaning}
@@ -218,18 +218,19 @@ doesnt contribute much to the model, we can also remove the shot_zone_basic for 
 After deleted all the useless columns,we need to merge some features,and create the dummy variables.
 First,Let's convert the minutes and seconds to single column.
 \begin{description}
-	\item[total\_seconds] row[seconds\_remaining]*row[minutes\_remaining] 
+	\item[total\_seconds] row[seconds\_remaining]+60*row[minutes\_remaining] 
 \end{description}
 After that,we can remove the minutes and the seconds columns.
 Categorical variables such as action_type,combined_shot_type,season,shot_type,shot_zone_range 
 and opponent,we can create the dummy variables for further analysis.
 \begin{figure}[htbp]
 	\centering
-	\includegraphics[scale=0.3]{u.eps
+	\includegraphics[scale=0.5]{u.eps
 	}        %Õâ¸öÊÇÔÚLaTeXÎÄ¼þ¼ÐÖÐµÄÏà¶ÔÂ·¾¶
 	\caption{part of the converted dataset}
 	\label{fig8}
 \end{figure}
+\newpage
 
 \section{Methods}
 
@@ -244,7 +245,7 @@ as the base models of ensemble model,show the most important parameters.
 	%\item GradientBoosting
 	\item LogisticRegression
 
-	\item KNeighbors 
+	\item KNN
 
 \end{itemize}
 \subsection{Models}
@@ -272,9 +273,7 @@ the mode of the individual tree output.
 	the most appropriate node
 	\item[max_depth] The maximum depth of the tree, 
 	the default is None 
-	\item[max_features] The feature that is divided 
-	when selecting the optimal attribute 
-	cannot exceed this value.
+	\item[max_features] Number of features in feature subset cannot exceed this value.
 \end{description}
 
 
@@ -301,7 +300,7 @@ the internal laws of things
 
 %\frac{\partial f}{\partial x} = 2\,\sqrt{a}\,x
 
-\subsubsection{KNeighbors}
+\subsubsection{KNN}
 \
 
 The meaning of the knn algorithm is that 
@@ -327,10 +326,7 @@ the most similar feature (nearest neighbor: k)
 
 \
 
-The following are the best parameters and 
-the Best Score in training of 
-the base models 
-in original train data. 
+The following are optimal parameters of three models. 
 
 \begin{itemize}
 	\item Best Parameters of Models
@@ -339,7 +335,7 @@ in original train data.
 		'max\_features': None, 'n\_estimators': 100
 		\item[LogisticRegression] 'C': 1, 'penalty': '11'
 	
-		\item[KNeighbors] 'algorithm': 'auto', 'leaf\_size': 10, 
+		\item[KNN] 'algorithm': 'auto', 'leaf\_size': 10, 
 		'n\_neighbors': 20, 'p': 5, 'weights': 'uniform'
 
 	\end{description}
@@ -351,24 +347,25 @@ From the  ~\Cref{tbl:best_score_base_models_old},
 it shows that the accuracy of 
 each model is not much different.
 and  it has shown that logistic regression runs better than others.
+In the final model, the weights of LR is larger.
+
 	\begin{table}[h]  
 		\centering
 		\caption{Accuracy of these Models}
 		\label{tbl:best_score_base_models_old}
-		\begin{tabular}{cccc}
+		\begin{tabular}{ccccc}
 			%\bottomrule
 			\toprule
-			& RF  & LR  & KNN \\
+			& RF  & LR  & KNN & ensemble\\
 			\midrule
-			Best Score & 0.637509727626  & 0.68186770428  & 0.568404669261\\
+			Best Score & 0.637509727626  & 0.68186770428  & 0.568404669261 & 0.738894059077\\
 			\bottomrule
 		\end{tabular}
 	\end{table}
-
-
+It can be seen that the ensemble model performs better in testing.
+Then,use the ensemble model make the final prediction.Finally, generate the forecast result and save them in the csv file.
 \end{itemize}
-
-
+\newpage
 
 
 

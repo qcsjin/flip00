@@ -1,0 +1,114 @@
+\documentclass{amsart}
+%DIF LATEXDIFF DIFFERENCE FILE
+%DIF DEL report00.tex   Fri Nov 22 09:39:51 2019
+%DIF ADD report.tex     Thu Nov 28 14:00:25 2019
+\synctex=1
+
+%=================================================================
+% 
+\newcount\DraftStatus  % 0 suppresses notes to selves in text
+\DraftStatus=1   % TODO: set to 0 for final version
+%=================================================================
+
+%=================================================================
+\usepackage{comment}
+%=================================================================
+%
+\includecomment{JournalOnly}  
+\includecomment{ConferenceOnly}  
+\includecomment{TulipStyle}
+%
+%=================================================================
+\input{preamble}
+
+
+%=================================================================
+%
+%DIF PREAMBLE EXTENSION ADDED BY LATEXDIFF
+%DIF UNDERLINE PREAMBLE %DIF PREAMBLE
+\RequirePackage[normalem]{ulem} %DIF PREAMBLE
+\RequirePackage{color}\definecolor{RED}{rgb}{1,0,0}\definecolor{BLUE}{rgb}{0,0,1} %DIF PREAMBLE
+\providecommand{\DIFadd}[1]{{\protect\color{blue}\uwave{#1}}} %DIF PREAMBLE
+\providecommand{\DIFdel}[1]{{\protect\color{red}\sout{#1}}}                      %DIF PREAMBLE
+%DIF SAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddbegin}{} %DIF PREAMBLE
+\providecommand{\DIFaddend}{} %DIF PREAMBLE
+\providecommand{\DIFdelbegin}{} %DIF PREAMBLE
+\providecommand{\DIFdelend}{} %DIF PREAMBLE
+%DIF FLOATSAFE PREAMBLE %DIF PREAMBLE
+\providecommand{\DIFaddFL}[1]{\DIFadd{#1}} %DIF PREAMBLE
+\providecommand{\DIFdelFL}[1]{\DIFdel{#1}} %DIF PREAMBLE
+\providecommand{\DIFaddbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFaddendFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelbeginFL}{} %DIF PREAMBLE
+\providecommand{\DIFdelendFL}{} %DIF PREAMBLE
+%DIF END PREAMBLE EXTENSION ADDED BY LATEXDIFF
+
+\begin{document}
+	%
+	%=================================================================
+	%
+	\title[Chen Jin's Flip00 ]{Flip00 Final Presetantion Report}%
+
+	\author{Jin Chen}
+	\address[A.~1]{,\\ Business school of HuNan University, Changsha , China}%
+
+	
+	%\author{Gang Li}
+	%\address[A.~2]{School of Information Technology \\
+	%Deakin University, Geelong, VIC 3216, Australia}%
+	%\email[A.~2]{gang.li@deakin.edu.au}
+
+	
+	%\author{Author 3}
+	%\address[A.~3]{School of Information Technology \\
+	%Deakin University \\
+	%Vic 3125, Australia}%
+	%\email[A.~3]{xxx@deakin.edu.au}
+
+	%\thanks{Thanks to \ldots}%
+	%\subjclass{Artificial Intelligence}%
+	\keywords{Machine Learning, Data Mining, ...}%
+	\date{\gitAuthorDate}%
+
+	\begin{abstract}
+		This report contains four parts. 
+		first, 
+		introduce the problem and describe the data. 
+		Second, 
+		visualize the data to find some potential relationships 
+		between the attribute values.
+		Afterwards,process the data 
+		like creating the dummy variables, feature engineering, feature selection etc. 
+		Third, 
+		explain the method of experiment.Then, experiment and 
+		analyze the performance of different models.
+		The last part is conclusion . 
+	\end{abstract}
+\DIFdelbegin %DIFDELCMD < 
+
+%DIFDELCMD < %%%
+\DIFdelend \maketitle
+\tableofcontents
+
+\newpage
+%=================================================================
+
+\DIFdelbegin %DIFDELCMD < \input{mainbody00_1}
+%DIFDELCMD < %%%
+\DIFdelend \DIFaddbegin \input{mainbody00}
+\DIFaddend 
+
+
+
+
+% ----------------------------------------------------------------
+\newpage
+\bibliography{tuliplab,Linbib}
+\bibliographystyle{plain}
+%=================================================================
+
+\listoftodos
+
+\end{document}
+

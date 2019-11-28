@@ -296,9 +296,7 @@ a sample submission file with the correct shot_ids needed for a valid prediction
 \begin{slide}[toc=,bm=]{Data Visualization}
 	\begin{center}
 		\twotonebox{\rotatebox{90}{Exp}}{\parbox{.96\textwidth}
-			{Using the scatter plot we can combine multiple 
-				categorical value series on to the same chart distinguishing them using color or 
-				variation in symbol.
+			{
 				Lets get some understanding about the different zones and the shots made from zones.
 		}}
 	\end{center}
@@ -366,7 +364,7 @@ Therefore some columns might be dropped.
 
 	\begin{figure}[H]
 	\centering
-\includegraphics[scale=0.25]{t.eps
+\includegraphics[scale=0.24]{t.eps
 }        %Õâ¸öÊÇÔÚLaTeXÎÄ¼þ¼ÐÖÐµÄÏà¶ÔÂ·¾¶
 \caption{Pairplot of (loc\_x ,loc\_y) and (lat , lon)}
 \label{fig6}
@@ -375,14 +373,16 @@ Therefore some columns might be dropped.
 
 \begin{slide}{Data Transformation}
 
-After deleted all the useless columns,we need to merge some features,and create the dummy variables.
+After deleted all the useless columns,we need to \textbf{merge some features},and \textbf{create dummy variables}.\quad
 First,Let's convert the minutes and seconds to single column.
 \begin{description}
-	\item[total\_seconds] row[seconds\_remaining]*row[seconds\_remaining] 
-\end{description}
+\item total\_seconds = row[seconds\_remaining]+60*row[minutes\_remaining] 
+	\newline
 After that,we can remove the minutes and the seconds columns.
-Categorical variables such as action_type,combined_shot_type,season,shot_type,shot_zone_range 
-and opponent,we can create the \textbf{dummy variables} for further analysis.
+\end{description}
+
+\item Categorical variables such as \textbf{action_type} , \textbf{combined_shot_type}, \textbf{season}, \textbf{shot_type}, \textbf{shot_zone_range} 
+and \textbf{opponent},we can create the dummy variables for further analysis.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.6]{u.eps
@@ -418,40 +418,72 @@ test data.
 			\item LogisticRegression	
 			\item KNeighbors
 		\end{itemize}
+	   \item Voting ensemble
 	\end{itemize}
 \end{center}
 
 \end{slide}
+
+%%==========================================================================================
+%%
+\begin{slide}{Parameter Adjustment}
+	The following are optimal parameters of three models. 
+	\begin{itemize}
+		\item Best Parameters of Models
+	\end{itemize}
+	\begin{description}
+	\item[RandomForest] 'criterion': 'entropy', 'max\_depth': 5, 
+	'max\_features': None, 'n\_estimators': 100
+	\item[LogisticRegression] 'C': 1, 'penalty': '11'
+	
+	\item[KNeighbors] 'algorithm': 'auto', 'leaf\_size': 10, 
+	'n\_neighbors': 20, 'p': 5, 'weights': 'uniform'
+	
+\end{description}
+	
+\end{slide}
+
 %%
 %%==========================================================================================
 
 
-\section{Forecast Results}
+\section{Make final predictions}
 
 
 %%==========================================================================================
 %%
 \begin{slide}{Forecast Results}
-The tables below are 
-the metrics classification report 
-of ensemble model in 
-original and new train data.
+The tables below are the accuracy of each model
+with the adjusted optimal parameter.
 \begin{itemize}
 	\item Metrics Classification Report of Ensemble Model in original and new train data
 \end{itemize}
 \begin{center}
-	\begin{tabular}{ccccccc}
+\item {Accuracy of three Models}
+	\begin{tabular}{cccc}
 	%\bottomrule
 	\toprule
 	& RF  & LR  & KNN \\
 	\midrule
-	Best Score & 0.637509727626  & 0.68186770428  & 0.568404669261\\
+	Best Score & 0.637509727626  & 0.68186770428  & 0.568404669261 \\
 	\bottomrule
 \end{tabular}
 \end{center}
-It has shown that logistic regression runs better than others.
+\begin{description}
+	\item It has shown that logistic regression runs better than others.In the final model, the weights of LR is larger.
+\end{description}
+\begin{description}
+	\item Then,use the ensemble model make the final prediction.	The final ensemble model's prediction accuracy is \textbf{0.738894059077}.
+		\newline
+	Finally, generate the forecast result and save them in the csv file.
+\end{description}
+
+
+
 
 \end{slide}
+
+
 %%
 %%==========================================================================================
 

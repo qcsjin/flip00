@@ -90,6 +90,8 @@
 % for tikz figures
 \usepackage{tikz}
 \usepackage{float}
+\usepackage{geometry}
+\geometry{left=3.0cm,right=2.0cm,top=2.5cm,bottom=2.5cm}
 \usetikzlibrary{fit,positioning,arrows.meta,shapes,arrows}
 %\tikzset{neuron/.style={circle,thick,fill=black!25,minimum size=17pt,inner sep=0pt},
 %	input neuron/.style={neuron, draw,thick, fill=gray!30},
@@ -119,7 +121,7 @@
 %=================================================================
 \fancyfoot{} % clear all footer fields
 \fancyfoot[CE,CO]{\textbf{\thepage}} 
-\fancyfoot[LO,LE]{\includegraphics[height=.9\headheight]{logos/tulip-logo.eps}
+\fancyfoot[LO,LE]{\includegraphics[height=.0001\headheight]{logos/tulip-logo.eps}
 		\gitVtagn-\gitBranch\ (\gitCommitterDate)}
 \fancyfoot[RO,RE]{Committed by: \textsl{\gitCommitterName}}
 
