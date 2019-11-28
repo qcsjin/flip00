@@ -17,8 +17,8 @@
 \fancyfoot{} % clear all footer fields
 \fancyfoot[CE,CO]{\textbf{\thepage}}
 \fancyfoot[LO,LE]{\includegraphics[height=.0001\headheight]{logos/tulip-logo.eps}
-\gitVtagn-\gitBranch\ (\gitCommitterDate)}
-\fancyfoot[RO,RE]{Committed by: \textsl{\gitCommitterName}}
+ flip00  (2019-11-29)}
+\fancyfoot[RO,RE]{Committed by:Jin Chen}}
 
 \setlength{\headheight}{12pt}
 \renewcommand{\headrulewidth}{0.4pt}
