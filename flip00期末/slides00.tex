@@ -1,9 +1,9 @@
-%
+% 
 % ---------------------------------------------------------------
 % Copyright (C) 2012-2018 Gang Li
 % ---------------------------------------------------------------
 %
-% This work is the default powerdot-tuliplab style test file and may be
+% This work is the default powerdot-tuliplab style test file in TULIP Lab and may be
 % distributed and/or modified under the conditions of the LaTeX Project Public
 % License, either version 1.3 of this license or (at your option) any later
 % version. The latest version of this license is in
@@ -16,18 +16,19 @@
 %
 %
 
+% Document Class
 \documentclass[
-size=14pt,
-paper=smartboard,  %a4paper, smartboard, screen
-mode=present, 		%present, handout, print
-display=slides, 	% slidesnotes, notes, slides
-% TULIP Lab style
-pauseslide,
-fleqn,leqno]{powerdot}
+ size=12pt,
+ paper=smartboard,  %a4paper, smartboard, screen
+ mode=present, 		%present, handout, print
+ display=slides, 	% slidesnotes, notes, slides
+ style=tuliplab,  	% TULIP Lab style
+ pauseslide,
+ fleqn,leqno]{powerdot}
 
 
 \usepackage{amssymb}
-\usepackage{amsmath}
+\usepackage{amsmath} 
 \usepackage{rotating}
 \usepackage{graphicx}
 \usepackage{boxedminipage}
@@ -38,7 +39,8 @@ fleqn,leqno]{powerdot}
 \usepackage{psfrag,overpic}
 \usepackage{fouriernc}
 \usepackage{pstricks,pst-node,pst-text,pst-3d,pst-grad}
-\usepackage{moreverb,epsfig,subfigure}
+\usepackage{moreverb,epsfig,color,subfigure}
+\usepackage{color}
 \usepackage{pstricks}
 \usepackage{pstricks-add}
 \usepackage{pst-text}
@@ -48,32 +50,27 @@ fleqn,leqno]{powerdot}
 \usepackage{breqn}
 \usepackage{multirow}
 \usepackage{gitinfo2}
-\usepackage{xcolor}
-
-\usepackage{todonotes}
 % \usepackage{pst-rel-points}
-\usepackage{animate}
-\usepackage{fontawesome}
 
 \usepackage{listings}
-\lstset{frameround=fttt,
-	frame=trBL,
-	stringstyle=\ttfamily,
-	backgroundcolor=\color{yellow!20},
-	basicstyle=\footnotesize\ttfamily}
+\lstset{frameround=fttt, 
+frame=trBL, 
+stringstyle=\ttfamily,
+backgroundcolor=\color{yellow!20},
+basicstyle=\footnotesize\ttfamily}
 \lstnewenvironment{code}{
-	\lstset{frame=single,escapeinside=`',
-		backgroundcolor=\color{yellow!20},
-		basicstyle=\footnotesize\ttfamily}
+\lstset{frame=single,escapeinside=`',
+backgroundcolor=\color{yellow!20},
+basicstyle=\footnotesize\ttfamily}
 }{}
 
 
 \usepackage{hyperref}
 \hypersetup{ % TODO: PDF meta Data
-	pdftitle={Presentation Title},
-	pdfauthor={Gang Li},
-	pdfpagemode={FullScreen},
-	pdfborder={0 0 0}
+  pdftitle={Presentation Title},
+  pdfauthor={Gang Li},
+  pdfpagemode={FullScreen},
+  pdfborder={0 0 0}
 }
 
 
@@ -88,43 +85,34 @@ fleqn,leqno]{powerdot}
 \newcommand\icite[1]{{\footnotesize [#1]}}
 
 \newcommand\twotonebox[2]{\fcolorbox{pdcolor2}{pdcolor2}
-	{#1\vphantom{#2}}\fcolorbox{pdcolor2}{white}{#2\vphantom{#1}}}
+{#1\vphantom{#2}}\fcolorbox{pdcolor2}{white}{#2\vphantom{#1}}}
 \newcommand\twotoneboxo[2]{\fcolorbox{pdcolor2}{pdcolor2}
-	{#1}\fcolorbox{pdcolor2}{white}{#2}}
+{#1}\fcolorbox{pdcolor2}{white}{#2}}
 \newcommand\vpspace[1]{\vphantom{\vspace{#1}}}
 \newcommand\hpspace[1]{\hphantom{\hspace{#1}}}
 \newcommand\COMMENT[1]{}
 
 \newcommand\placepos[3]{\hbox to\z@{\kern#1
-		\raisebox{-#2}[\z@][\z@]{#3}\hss}\ignorespaces}
-
-\renewcommand{\baselinestretch}{1.2}
-
-
-\newcommand{\draftnote}[3]{
-	\todo[author=#2,color=#1!30,size=\footnotesize]{\textsf{#3}}	}
-% TODO: add yourself here:
-%
-\newcommand{\gangli}[1]{\draftnote{blue}{GLi:}{#1}}
-\newcommand{\shaoni}[1]{\draftnote{green}{sn:}{#1}}
-\newcommand{\gliMarker}
-{\todo[author=GLi,size=\tiny,inline,color=blue!40]
-	{Gang Li has worked up to here.}}
-\newcommand{\snMarker}
-{\todo[author=Sn,size=\tiny,inline,color=green!40]
-	{Shaoni has worked up to here.}}
+        \raisebox{-#2}[\z@][\z@]{#3}\hss}\ignorespaces} 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % title
 % TODO: Customize to your Own Title, Name, Address
 %
-\title{Flip00 Project Final Presentation}
+
+% title
+% TODO: Customize to your Own Title, Name, Address
+%
+\title{Presentation Title}
 \author{
- Jin Chen\\
-HuNan University
+Jin Chen
+\\
+HuNan University 
+% \href{mailto:gangli@acm.org}{gangli@acm.org}
+% \and % more authors
 }
-\date{\today}
+\date{\gitCommitterDate}
 
 
 % Customize the setting of slides
@@ -133,23 +121,20 @@ HuNan University
 rf=\href{http://www.tulip.org.au}{
 Last Changed by: \textsc{\gitCommitterName}\ \gitVtagn-\gitAbbrevHash\ (\gitAuthorDate)
 },
-cf={Flip00 Project Final  Presentation},
+cf={Flip00 Project Final Presentation},
 }
 
 
+% Starts the document
 \begin{document}
 
-\maketitle
-
-%\begin{slide}{Overview}
-%\tableofcontents[content=sections]
-%\end{slide}
-
+\maketitle 
 
 %%==========================================================================================
 %%
-\begin{slide}[toc=,bm=]{Overview}
-\tableofcontents[content=currentsection,type=1]
+\begin{slide}[toc=,bm=]{Table of Content}
+ \tableofcontents[type=1,content=futuresections]
+%  \tableofcontents[content=sections]
 \end{slide}
 %%
 %%==========================================================================================
@@ -261,7 +246,7 @@ a sample submission file with the correct shot_ids needed for a valid prediction
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.3]{d.eps
-	}        %?a??¨º??¨²LaTeX???t?D?D¦Ì??¨¤???¡¤??
+	}        %?a??��o??��2LaTeX???t?D?D|��??����????��??
 	\caption{The hit distribution histogram of two shot types}
 	\label{fig1}
 \end{figure}
@@ -284,7 +269,7 @@ a sample submission file with the correct shot_ids needed for a valid prediction
 		\begin{figure}[htbp]
 			\centering
 			\includegraphics[scale=0.3]{f.eps
-			}        %Õâ¸öÊÇÔÚLaTeXÎÄ¼þ¼ÐÖÐµÄÏà¶ÔÂ·¾¶
+			}        %?a??��??��LaTeX???t?D?D��??��???��??
 			\caption{the shot accuracy of various action type}
 			\label{fig2}
 		\end{figure}
@@ -304,7 +289,7 @@ a sample submission file with the correct shot_ids needed for a valid prediction
 	\begin{figure}[htbp]
 		\centering
 		\includegraphics[scale=0.28]{h.eps
-		}        %Õâ¸öÊÇÔÚLaTeXÎÄ¼þ¼ÐÖÐµÄÏà¶ÔÂ·¾¶
+		}        %?a??��??��LaTeX???t?D?D��??��???��??
 		\caption{Division of shooting area}
 		\label{fig3}
 	\end{figure}	
@@ -325,7 +310,7 @@ a sample submission file with the correct shot_ids needed for a valid prediction
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.28]{m.eps
-	}        %Õâ¸öÊÇÔÚLaTeXÎÄ¼þ¼ÐÖÐµÄÏà¶ÔÂ·¾¶
+	}        %?a??��??��LaTeX???t?D?D��??��???��??
 	\caption{shot accuracy of each seasons}
 	\label{fig4}
 \end{figure}
@@ -345,7 +330,7 @@ a sample submission file with the correct shot_ids needed for a valid prediction
 	\begin{figure}[htbp]
 		\centering
 		\includegraphics[scale=0.28]{s.eps
-		}        %Õâ¸öÊÇÔÚLaTeXÎÄ¼þ¼ÐÖÐµÄÏà¶ÔÂ·¾¶
+		}        %?a??��??��LaTeX???t?D?D��??��???��??
 		\caption{Shot_distance vs the accuracy of the shots made flag}
 		\label{fig5}
 	\end{figure}
@@ -365,7 +350,7 @@ Therefore some columns might be dropped.
 	\begin{figure}[H]
 	\centering
 \includegraphics[scale=0.24]{t.eps
-}        %Õâ¸öÊÇÔÚLaTeXÎÄ¼þ¼ÐÖÐµÄÏà¶ÔÂ·¾¶
+}        %?a??��??��LaTeX???t?D?D��??��???��??
 \caption{Pairplot of (loc\_x ,loc\_y) and (lat , lon)}
 \label{fig6}
 \end{figure}
@@ -386,7 +371,7 @@ and \textbf{opponent},we can create the dummy variables for further analysis.
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[scale=0.6]{u.eps
-	}        %Õâ¸öÊÇÔÚLaTeXÎÄ¼þ¼ÐÖÐµÄÏà¶ÔÂ·¾¶
+	}        %?a??��??��LaTeX???t?D?D��??��???��??
 	\caption{part of the converted dataset}
 \end{figure}
 \end{slide}
@@ -402,7 +387,7 @@ and \textbf{opponent},we can create the dummy variables for further analysis.
 
 There are many machine learning algorithms, 
 use the machine learning algorithms below
-as Ensemble Model’s base models. 
+as Ensemble Model��s base models. 
 Through Grid Search and
 ten-fold cross-validation
 to find the optimal parameters.
