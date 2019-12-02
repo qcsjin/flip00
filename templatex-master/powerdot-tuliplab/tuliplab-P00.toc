@@ -1,0 +1,30 @@
+\pdcontentsline{1}{3}{First section}
+\pdcontentsline{0}{5}{Some slide}
+\pdcontentsline{0}{6}{Content}
+\pdcontentsline{1}{7}{Itemize Pause}
+\pdcontentsline{0}{8}{Pause longer}
+\pdcontentsline{0}{9}{Multiple pauses}
+\pdcontentsline{0}{10}{Type 1 itemize}
+\pdcontentsline{0}{11}{Type 1 enumerate}
+\pdcontentsline{0}{12}{Nested lists}
+\pdcontentsline{1}{13}{Overlay}
+\pdcontentsline{0}{14}{Active itemize}
+\pdcontentsline{0}{15}{Simple onslide}
+\pdcontentsline{0}{16}{Simple onslide+}
+\pdcontentsline{0}{17}{Simple onslide*}
+\pdcontentsline{0}{18}{Lists}
+\pdcontentsline{0}{19}{Relative overlays}
+\pdcontentsline{0}{20}{Slide 2}
+\pdcontentsline{0}{21}{Slide 3}
+\pdcontentsline{1}{22}{Codings}
+\pdcontentsline{0}{23}{Slide 2}
+\pdcontentsline{0}{24}{Slide 3}
+\pdcontentsline{0}{25}{Hello World in C}
+\pdcontentsline{1}{26}{Citations}
+\pdcontentsline{0}{27}{Cite}
+\pdcontentsline{0}{28}{References}
+\pdcontentsline{1}{29}{Two Columns}
+\pdcontentsline{0}{30}{Two columns}
+\pdcontentsline{0}{31}{Two Columns}
+\pdcontentsline{1}{32}{Misc}
+\pdcontentsline{0}{33}{}
